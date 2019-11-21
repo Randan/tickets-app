@@ -13,11 +13,17 @@ const Home = () => {
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci iste ad earum dolorum temporibus nihil ullam est, sint quia modi, cum unde ratione, quasi cumque eum asperiores doloribus atque? Maxime!</p>
 
-        <Link to={ routes.order }>
-            <Button variant="contained" color="primary">
-                Place Order
-            </Button>
-        </Link>
+        <div
+            style={{
+                marginTop: 100
+            }}
+        >
+            <Link to={ routes.order }>
+                <Button variant="contained" color="primary">
+                    Place Order
+                </Button>
+            </Link>
+        </div>
     </>;
 };
 

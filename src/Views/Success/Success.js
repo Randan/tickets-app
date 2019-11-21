@@ -12,12 +12,18 @@ const Success = () => {
         </h1>
 
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas saepe recusandae alias itaque harum omnis libero delectus ipsa voluptatum provident doloribus, numquam distinctio porro a dicta maxime vel dolor dolorum?</p>
-        
-        <Link to={ routes.home }>
-            <Button variant="contained" color="primary">
-                Back to Home
-            </Button>
-        </Link>
+
+        <div
+            style={{
+                marginTop: 100
+            }}
+        >
+            <Link to={ routes.home }>
+                <Button variant="contained" color="primary">
+                    Back to Home
+                </Button>
+            </Link>
+        </div>
     </>;
 };
 
