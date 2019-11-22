@@ -1,1 +1,2 @@
-export const CHANGE_DATE = 'CHANGE_DATE';
+export const TICKET_CHANGE = 'TICKET_CHANGE';
+export const TICKETS_INITIATE = 'TICKETS_INITIATE';

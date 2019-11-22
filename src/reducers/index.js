@@ -1,8 +1,10 @@
-import changeDate from './changeDate';
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
+import currentTicket from './currentTicket';
+import tickets from './tickets';
 
 export const reducer = combineReducers({
-  changeDate,
-  form: formReducer
+  form: formReducer,
+  currentTicket,
+  tickets
 });
