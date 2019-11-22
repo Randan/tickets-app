@@ -35,9 +35,6 @@ export default compose(
         validate,
         asyncValidate,
         onSubmitSuccess: () => history.push(routes.success), // FIXME
-        onSubmit: result => {
-            console.log(result);
-        },
     }),
     connect(
         state => {
