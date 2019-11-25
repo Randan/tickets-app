@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import tickets from '../../tickets';
 import routes from '../../routes';
 
+const history = require("history").createBrowserHistory();
+
 const cardMask = createTextMask({
   pattern: '9999 9999 9999 9999'
 });
@@ -63,13 +65,15 @@ export default class OrderForm extends React.Component {
         .find(period => period.id === dateTimeId);
 
     return (
-      <form>
+      <form id="my-form" onSubmit={(e) => {
+        e.preventDefault();
+        history.push(routes.success);
+      }}>
         <div>
           <label style={{ display: 'block' }} htmlFor="ticket">Ticket:</label>
           <Field
             name="ticket"
             component={renderSelectField}
-            // onChange={() => handleTicketChange('4c6141f0-fe3d-4478-87ad-db0398f62e3c')}
             onChange={(value) => this.onTicketChange(value)}
           >
             {tickets.map(ticket => 

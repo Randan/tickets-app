@@ -6,9 +6,6 @@ import asyncValidate from './asyncValidate';
 import OrderForm from './OrderForm';
 import handleTicketChange from '../../actions/onTicketChange/handleTicketChange';
 import handleTicketsInitiate from '../../actions/ticketsInitiate/handleTicketsInitiate';
-import routes from '../../routes';
-
-const history = require("history").createBrowserHistory();
 
 const validate = values => {
     const errors = {};
@@ -33,8 +30,7 @@ export default compose(
     reduxForm({
         form: 'orderForm',
         validate,
-        asyncValidate,
-        onSubmitSuccess: () => history.push(routes.success), // FIXME
+        asyncValidate
     }),
     connect(
         state => {
