@@ -1,11 +1,11 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { createTextMask } from 'redux-form-input-masks';
-import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import TextField from './parts/TextField'
 import tickets from '../../tickets';
 import routes from '../../routes';
 
@@ -14,16 +14,6 @@ const history = require("history").createBrowserHistory();
 const cardMask = createTextMask({
   pattern: '9999 9999 9999 9999'
 });
-
-const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
-  <TextField
-    hintText={label}
-    floatingLabelText={label}
-    errorText={touched && error}
-    {...input}
-    {...custom}
-  />
-)
 
 const renderSelectField = ({ input, label, meta: { touched, error }, children }) => (
   <SelectField
@@ -108,9 +98,8 @@ export default class OrderForm extends React.Component {
         {currentPeriod
           && <div>
             <label style={{ display: 'block' }} htmlFor="amount">Amount (max: {currentPeriod.availableAmount}):</label>
-            <Field
+            <TextField
               name="amount"
-              component={renderTextField}
               type="number"
               min={1}
               max={currentPeriod.availableAmount}
@@ -119,37 +108,30 @@ export default class OrderForm extends React.Component {
         }
 
         <div>
-          <Field
+          <TextField
             name="cardNumber"
-            component={renderTextField}
-            type="text"
             label="Card Number"
-            {...cardMask}
+            mask={cardMask}
           />
         </div>
         
         <div>
-          <Field
+          <TextField
             name="firstName"
-            component={renderTextField}
-            type="text"
             label="First Name"
           />
         </div>
 
         <div>
-          <Field
+          <TextField
             name="lastName"
-            component={renderTextField}
-            type="text"
             label="Last Name"
           />
         </div>
 
         <div>
-          <Field
+          <TextField
             name="email"
-            component={renderTextField}
             type="email"
             label="Email"
           />
